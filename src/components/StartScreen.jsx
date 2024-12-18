@@ -16,7 +16,7 @@ const StartScreen = ({ startQuiz }) => (
 
         <button
             onClick={startQuiz}
-            className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-2xl transition duration-300"
+            className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-full transition duration-300"
         >
             Iniciar Questionário
         </button>
