@@ -3,7 +3,7 @@ import React from 'react';
 const ProgressBar = ({ currentStep, totalSteps }) => (
     <div className="w-full max-w-md mx-auto mb-8">
         <div className="relative">
-            <div className="relative h-6"> {/* Aumentamos a altura para acomodar os números */}
+            <div className="relative h-6">
                 <div className="absolute top-1/2 w-full h-1 bg-gray-700 rounded transform -translate-y-1/2">
                     <div
                         className="h-full bg-teal-400 rounded transition-all duration-300"

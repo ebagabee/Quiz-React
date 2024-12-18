@@ -82,7 +82,7 @@ const QuestionTemplate = ({ question, image, options, onAnswer, isMultipleChoice
             {isMultipleChoice && (
                 <button
                     onClick={handleSubmit}
-                    className="mt-6 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+                    className="mt-6 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-2xl transition duration-300"
                 >
                     Próximo
                 </button>

@@ -27,7 +27,7 @@ const EmailSubmission = ({ onSubmit }) => {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+                    className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-4 rounded-2xl transition duration-300"
                 >
                     Enviar Resultados
                 </button>

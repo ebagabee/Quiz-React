@@ -20,7 +20,7 @@ const DidYouKnow = ({ title, description, icon, onNext }) => {
 
             <button
                 onClick={onNext}
-                className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300"
+                className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-2xl transition duration-300"
             >
                 Próximo
             </button>
