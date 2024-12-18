@@ -21,12 +21,7 @@ const StartScreen = ({ startQuiz }) => (
             Iniciar Questionário
         </button>
 
-        <div className="mt-8 mb-8">
-            <div className="w-32 h-32 mx-auto bg-blue-500 rounded-full relative overflow-hidden">
-                <div className="absolute inset-0 bg-green-400 rounded-full transform translate-x-1/3"></div>
-                <div className="absolute top-0 right-0 text-yellow-300 text-2xl">✨</div>
-            </div>
-        </div>
+
     </main>
 );
 

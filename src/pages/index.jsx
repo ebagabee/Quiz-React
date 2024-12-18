@@ -1,10 +1,12 @@
-'use client'
 import React, { useState } from 'react';
 import StartScreen from '../components/StartScreen';
 import Footer from '../components/Footer';
 import ProgressBar from '../components/ProgressBar';
 import QuizScreen from '../components/QuizScreen';
 import DidYouKnow from '../components/DidYouKnow';
+import EmailSubmission from '../components/EmailSubmission';
+import GenderSelection from '../components/GenderSelection';
+import AgeSelection from '../components/AgeSelection';
 
 const questions = [
     {
@@ -69,7 +71,7 @@ const questions = [
             "Multidões"
         ],
         isMultipleChoice: true,
-        hint: "Selecione todas que se aplicam"
+        hint: "Selecione todas que se aplicam",
     },
     {
         id: 6,
@@ -106,7 +108,8 @@ const questions = [
             "Conversando com amigos",
             "Evito pensar nisso"
         ],
-        isMultipleChoice: false
+        isMultipleChoice: false,
+        afterDidYouKnow: true,
     },
     {
         id: 9,
@@ -174,7 +177,8 @@ const questions = [
             "Comparação constante com os outros"
         ],
         isMultipleChoice: true,
-        hint: "Selecione todos que se aplicam"
+        hint: "Selecione todos que se aplicam",
+        afterDidYouKnow: true,
     },
     {
         id: 16,
@@ -224,7 +228,8 @@ const questions = [
             "Desenvolvimento pessoal"
         ],
         isMultipleChoice: true,
-        hint: "Selecione todas as áreas relevantes"
+        hint: "Selecione todas as áreas relevantes",
+        afterDidYouKnow: true,
     },
     {
         id: 21,
@@ -241,7 +246,26 @@ const didYouKnowScreens = [
         description: "É por isso que criar um plano de tratamento personalizado é fundamental para abordar os desafios únicos de cada indivíduo.",
         icon: "vite.svg"
     },
-    // ... outras telas "Did You Know" aqui
+    {
+        title: "O estresse crônico pode afetar a saúde física",
+        description: "Técnicas de gerenciamento de estresse, como meditação e exercícios, podem melhorar tanto a saúde mental quanto a física.",
+        icon: "vite.svg"
+    },
+    {
+        title: "A autoconsciência é chave para o crescimento pessoal",
+        description: "Reconhecer padrões de comportamento é o primeiro passo para desenvolver estratégias de enfrentamento mais saudáveis.",
+        icon: "vite.svg"
+    },
+    {
+        title: "Nossas experiências moldam nossa percepção do mundo",
+        description: "Compreender como o passado influencia o presente pode nos ajudar a fazer escolhas mais conscientes no futuro.",
+        icon: "vite.svg"
+    },
+    {
+        title: "A terapia pode beneficiar qualquer pessoa",
+        description: "Buscar ajuda profissional não é apenas para crises, mas também para crescimento pessoal e bem-estar geral.",
+        icon: "vite.svg"
+    }
 ];
 
 
@@ -251,10 +275,22 @@ export default function Home() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState([]);
     const [currentDidYouKnow, setCurrentDidYouKnow] = useState(null);
-    const [remainingDidYouKnow, setRemainingDidYouKnow] = useState([...didYouKnowScreens]);
+    const [didYouKnowIndex, setDidYouKnowIndex] = useState(0);
+    const [isQuizFinished, setIsQuizFinished] = useState(false);
+    const [gender, setGender] = useState(null);
+    const [age, setAge] = useState(null);
 
     const startQuiz = () => {
         setIsQuizStarted(true);
+    };
+
+    const handleGenderSelect = (selectedGender) => {
+        setGender(selectedGender);
+    };
+
+    const handleAgeSelect = (selectedAge) => {
+        setAge(selectedAge);
+        setCurrentQuestion(0);
     };
 
     const handleAnswer = (answer) => {
@@ -265,19 +301,24 @@ export default function Home() {
 
         setAnswers([...answers, newAnswer]);
 
-        if (currentQuestion + 1 < questions.length) {
+        if (questions[currentQuestion].afterDidYouKnow && didYouKnowIndex < didYouKnowScreens.length) {
+            setCurrentDidYouKnow(didYouKnowScreens[didYouKnowIndex]);
+            setDidYouKnowIndex(didYouKnowIndex + 1);
+        } else if (currentQuestion + 1 < questions.length) {
             setCurrentQuestion(currentQuestion + 1);
-            if ((currentQuestion + 1) % 2 === 0 && remainingDidYouKnow.length > 0) {
-                setCurrentDidYouKnow(remainingDidYouKnow[0]);
-                setRemainingDidYouKnow(remainingDidYouKnow.slice(1));
-            }
         } else {
-            console.log('Respostas:', answers);
+            setIsQuizFinished(true);
         }
     };
 
     const handleDidYouKnowNext = () => {
         setCurrentDidYouKnow(null);
+        setCurrentQuestion(currentQuestion + 1);
+    };
+
+    const handleEmailSubmit = (email) => {
+        console.log('Enviando resultados para:', email);
+        console.log('Respostas:', answers);
     };
 
     return (
@@ -287,6 +328,12 @@ export default function Home() {
                     <StartScreen startQuiz={startQuiz} />
                     <Footer />
                 </>
+            ) : isQuizFinished ? (
+                <EmailSubmission onSubmit={handleEmailSubmit} />
+            ) : gender === null ? (
+                <GenderSelection onSelect={handleGenderSelect} />
+            ) : age === null ? (
+                <AgeSelection onSelect={handleAgeSelect} />
             ) : currentDidYouKnow ? (
                 <DidYouKnow
                     title={currentDidYouKnow.title}
