@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const CalculatingResults = () => {
   const [progress, setProgress] = useState({
@@ -6,41 +6,41 @@ const CalculatingResults = () => {
     sintomas: 0,
     trauma: 0,
     estatisticas: 0,
-    plano: 0
+    plano: 0,
   });
 
   const steps = [
     {
-      key: 'ambiente',
-      label: 'Analisando seu ambiente familiar',
-      color: 'bg-blue-500'
+      key: "ambiente",
+      label: "Analisando seu ambiente familiar",
+      color: "bg-blue-500",
     },
     {
-      key: 'sintomas',
-      label: 'Estudando seus sintomas principais',
-      color: 'bg-purple-500'
+      key: "sintomas",
+      label: "Estudando seus sintomas principais",
+      color: "bg-purple-500",
     },
     {
-      key: 'trauma',
-      label: 'Avaliando riscos de trauma infantil',
-      color: 'bg-green-500'
+      key: "trauma",
+      label: "Avaliando riscos de trauma infantil",
+      color: "bg-green-500",
     },
     {
-      key: 'estatisticas',
-      label: 'Preparando estatísticas e resultados detalhados',
-      color: 'bg-red-500'
+      key: "estatisticas",
+      label: "Preparando estatísticas e resultados detalhados",
+      color: "bg-red-500",
     },
     {
-      key: 'plano',
-      label: 'Desenvolvendo um plano de cura personalizado',
-      color: 'bg-indigo-500'
-    }
+      key: "plano",
+      label: "Desenvolvendo um plano de cura personalizado",
+      color: "bg-indigo-500",
+    },
   ];
 
   useEffect(() => {
     // Simular progresso
     const timer = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev.ambiente < 100) {
           return { ...prev, ambiente: Math.min(prev.ambiente + 1, 100) };
         }
@@ -51,7 +51,10 @@ const CalculatingResults = () => {
           return { ...prev, trauma: Math.min(prev.trauma + 1, 100) };
         }
         if (prev.estatisticas < 100) {
-          return { ...prev, estatisticas: Math.min(prev.estatisticas + 1, 100) };
+          return {
+            ...prev,
+            estatisticas: Math.min(prev.estatisticas + 1, 100),
+          };
         }
         if (prev.plano < 100) {
           return { ...prev, plano: Math.min(prev.plano + 1, 100) };
@@ -75,7 +78,9 @@ const CalculatingResults = () => {
             <div key={step.key} className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-sm text-gray-300">{step.label}</span>
-                <span className="text-sm text-gray-400">{progress[step.key]}%</span>
+                <span className="text-sm text-gray-400">
+                  {progress[step.key]}%
+                </span>
               </div>
               <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                 <div
@@ -101,7 +106,9 @@ const CalculatingResults = () => {
             ))}
           </div>
           <p className="text-gray-300">Excelente</p>
-          <p className="text-sm text-gray-400">4.8 baseado em 27.000 avaliações</p>
+          <p className="text-sm text-gray-400">
+            4.8 baseado em 27.000 avaliações
+          </p>
         </div>
 
         <div className="bg-gray-900/50 p-6 rounded-lg text-center space-y-4">
@@ -118,8 +125,8 @@ const CalculatingResults = () => {
             ))}
           </div>
           <p className="text-lg">
-            "O Breeze me proporcionou um espaço seguro para explorar e
-            entender meu verdadeiro eu."
+            "O App me proporcionou um espaço seguro para explorar e entender meu
+            verdadeiro eu."
           </p>
           <p className="text-sm text-gray-400">Lucas, 24, São Paulo</p>
         </div>
@@ -129,4 +136,3 @@ const CalculatingResults = () => {
 };
 
 export default CalculatingResults;
-
