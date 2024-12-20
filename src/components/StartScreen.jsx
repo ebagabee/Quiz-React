@@ -1,10 +1,10 @@
 import React from 'react';
 
 const StartScreen = ({ startQuiz }) => (
-    <main className="w-full max-w-md text-center">
-        <div className="mb-8">
-            <img src="start.png" alt="" />
-        </div>
+    <main className="w-full max-w-md text-center flex flex-col items-center">
+
+        <img src="start.png" alt="" className='w-[300px] -mb-6' />
+
 
         <h1 className="text-3xl font-bold mb-4">
             Supere o trauma da infância
