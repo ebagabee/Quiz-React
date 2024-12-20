@@ -3,7 +3,7 @@ import React from 'react';
 const StartScreen = ({ startQuiz }) => (
     <main className="w-full max-w-md text-center">
         <div className="mb-8">
-            <span className="text-4xl">🌱</span>
+            <img src="start.png" alt="" />
         </div>
 
         <h1 className="text-3xl font-bold mb-4">
