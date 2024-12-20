@@ -29,7 +29,7 @@ const EmailSubmission = ({ onSubmit }) => {
                     type="submit"
                     className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-4 rounded-full transition duration-300"
                 >
-                    Enviar Resultados
+                    Adquira um plano
                 </button>
             </form>
             <p className="mt-4 text-sm text-gray-400">
