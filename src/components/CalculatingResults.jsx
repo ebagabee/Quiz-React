@@ -125,7 +125,7 @@ const CalculatingResults = () => {
             ))}
           </div>
           <p className="text-lg">
-            "O App me proporcionou um espaço seguro para explorar e entender meu
+            "O teste me proporcionou um espaço seguro para explorar e entender meu
             verdadeiro eu."
           </p>
           <p className="text-sm text-gray-400">Lucas, 24, São Paulo</p>
