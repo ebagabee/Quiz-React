@@ -13,6 +13,7 @@ import { didYouKnowScreens } from "../questions/didYouKnowScreen";
 import SummaryScreen from "../components/SummaryScreen";
 import CalculatingResults from "../components/CalculatingResults";
 import PurchaseScreen from "../components/PurchaseScreen";
+import LastPage from "../components/last-page/index";
 
 export default function Home() {
   const [isQuizStarted, setIsQuizStarted] = useState(false);
@@ -28,6 +29,14 @@ export default function Home() {
   const [showCalculating, setShowCalculating] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
   const [showPurchase, setShowPurchase] = useState(false);
+  const [selectedPrice, setSelectedPrice] = useState(false);
+  const [showNextScreen, setShowNextScreen] = useState(false);
+
+  const handlePurchaseContinue = (price) => {
+    setSelectedPrice(price);
+    setShowPurchase(false);
+    setShowNextScreen(true);
+  };
 
   const startQuiz = () => {
     setIsQuizStarted(true);
@@ -109,7 +118,9 @@ export default function Home() {
         showCalculating ? (
           <CalculatingResults />
         ) : showPurchase ? (
-          <PurchaseScreen />
+          <PurchaseScreen onContinue={handlePurchaseContinue} />
+        ) : showNextScreen ? (
+          <LastPage />
         ) : showEmail ? (
           <EmailSubmission onSubmit={handleEmailSubmit} />
         ) : showSummary ? (
