@@ -14,7 +14,7 @@ export default function PurchaseScreen() {
           <div className="flex items-start space-x-3">
             <div className="text-green-400">✓</div>
             <div>
-              <strong>Inscreva-se no App</strong>
+              <strong>Inscreva-se</strong>
               <br />
               Você iniciou sua jornada para se tornar uma pessoa mais focada e
               feliz.
@@ -60,7 +60,7 @@ export default function PurchaseScreen() {
             </div>
           </div>
           <p className="text-gray-300 text-sm">
-            Você terá 7 dias completos para experimentar como o App pode
+            Você terá 7 dias completos para experimentar como o teste pode
             melhorar sua vida.
           </p>
 
