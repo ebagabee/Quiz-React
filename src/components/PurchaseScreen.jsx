@@ -1,26 +1,4 @@
-import { useState } from "react";
-
 export default function PurchaseScreen({ onContinue }) {
-  const [selectedPrice, setSelectedPrice] = useState(null);
-
-  const prices = [
-    { value: 5.0, label: "R$5,00" },
-    { value: 10.0, label: "R$10,00" },
-    { value: 50.0, label: "R$50,00" },
-    { value: 80.0, label: "R$80,00" },
-  ];
-
-  const handlePriceSelect = (price) => {
-    setSelectedPrice(price);
-  };
-
-  const handleContinue = () => {
-    if (selectedPrice) {
-      // Chama a função de continuação passada como prop
-      onContinue(selectedPrice);
-    }
-  };
-
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-md p-4 bg-slate-900 text-white rounded-md shadow-lg space-y-6">
       <div className="text-center text-sm bg-purple-700 px-4 py-2 rounded-md">
@@ -96,40 +74,9 @@ export default function PurchaseScreen({ onContinue }) {
         </div>
       </div>
 
-      <div className="w-full space-y-4">
-        <h3 className="text-center font-bold">Selecione um valor</h3>
-
-        <div className="grid grid-cols-2 gap-4">
-          {prices.map((price) => (
-            <button
-              key={price.value}
-              onClick={() => handlePriceSelect(price.value)}
-              className={`
-                py-3 px-4 rounded-md border-2 transition-all duration-300
-                ${
-                  selectedPrice === price.value
-                    ? "bg-green-500 border-green-500 text-white"
-                    : "bg-slate-800 border-slate-700 text-gray-300 hover:bg-slate-700"
-                }
-              `}
-            >
-              {price.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
       <button
-        onClick={handleContinue}
-        disabled={!selectedPrice}
-        className={`
-          font-bold py-2 px-4 rounded-md w-full transition-all duration-300
-          ${
-            selectedPrice
-              ? "bg-green-500 hover:bg-green-600 text-white"
-              : "bg-gray-600 text-gray-400 cursor-not-allowed"
-          }
-        `}
+        onClick={onContinue}
+        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md w-full"
       >
         Continuar
       </button>

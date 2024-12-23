@@ -12,10 +12,7 @@ export default function ResultsCard({ timeLeft }) {
           <div className="text-4xl font-bold">
             {timeLeft.seconds.toString().padStart(2, "0")}
           </div>
-          <div className="flex flex-col text-xs text-gray-400 ml-1">
-            <span>min</span>
-            <span>sec</span>
-          </div>
+          <div className="flex flex-col text-xs text-gray-400 ml-1"></div>
         </div>
         <button className="bg-[#4CD4C0] px-6 py-2 rounded-full text-sm font-semibold">
           Obter meu plano

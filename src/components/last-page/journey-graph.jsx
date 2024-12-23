@@ -25,11 +25,10 @@ export default function JourneyGraph() {
         <div className="absolute top-0 right-0 bg-gray-800/80 p-2 rounded">
           Auto-aceitação e paz interior
         </div>
-        <div className="absolute bottom-0 right-0 bg-gray-800/80 p-2 rounded">
+        <div className="absolute -bottom-3 right-0 bg-gray-800/80 p-2 rounded">
           Impacto do trauma
         </div>
         <div className="absolute bottom-0 left-0 text-sm">Você está aqui</div>
-        <div className="absolute bottom-0 right-0 text-[#4CD4C0]">Dia 30</div>
       </div>
     </div>
   );
