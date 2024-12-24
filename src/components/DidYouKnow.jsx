@@ -1,6 +1,6 @@
 const DidYouKnow = ({ title, description, icon, onNext }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1a1a2e] to-[#1a0a2e] flex items-center justify-center p-4">
+    <div className="min-h-screen h-full w-full bg-gradient-to-b from-[#1a1a2e] to-[#1a0a2e] flex items-center justify-center p-4">
       <div className="w-full max-w-md text-center space-y-6">
         {icon && (
           <div className="relative w-32 h-32 mx-auto">

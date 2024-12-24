@@ -53,7 +53,7 @@ const QuestionTemplate = ({
           <img
             src={image}
             alt="Question illustration"
-            className="w-12 h-12 flex-shrink-0"
+            className="w-16 h-16 flex-shrink-0"
           />
         )}
       </div>
